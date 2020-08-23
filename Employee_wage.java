@@ -54,7 +54,19 @@ public class Employee_wage {
 				System.out.println("Employee is absent");
 				break;
 			}
+
 		}
+
+		if (worked_hour>=100) {
+
+			//if working hours cross 100 break out of loop
+			System.out.println("100 hours of month are completed");
+			break;
+
+			}
+
+
+
 		}
 		//calculate wage for day
 		int month_wage=worked_hour*wage_per_hr;
