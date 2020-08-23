@@ -9,6 +9,10 @@ public class Employee_wage {
 		int wage_per_hr = 20;
 		int full_time_hr = 8;
 		int part_time_hr = 4;
+		
+
+		for (int day=0;day<20;day++) {
+
 		//getting random integer number 1 for present and 0 if absent
 		int attendance = (int) Math.floor(Math.random() * 10 ) % 2;
 
@@ -20,19 +24,22 @@ public class Employee_wage {
 		{
 		// if employee present
 		case 1:{
-			System.out.println("Employee is Present");
+
 			switch(work_type){
 
 				//if employee works full time
 				case 1:{
-					worked_hour = full_time_hr;
+					//add day work hours to total worked hours
+					worked_hour += full_time_hr;
 					System.out.println("Full time work done");
+				
 				break;
 					}
 
 				//if employee works part time
 				case 0: {
-					worked_hour = part_time_hr;
+					//add day work hours to total worked hours
+					worked_hour += part_time_hr;
 					System.out.println("Part time work done");
 				break;
 					}
@@ -48,10 +55,11 @@ public class Employee_wage {
 				break;
 			}
 		}
+		}
 		//calculate wage for day
-		int day_wage=worked_hour*wage_per_hr;
+		int month_wage=worked_hour*wage_per_hr;
 		
-		System.out.println("The day wage is : "+day_wage);
+		System.out.println("The day wage is : "+month_wage);
 
 	}
 
