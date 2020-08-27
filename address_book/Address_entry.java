@@ -12,8 +12,8 @@ public class Address_entry {
 		Scanner myObj = new Scanner(System.in);
 
 		// Get name form user
-		System.out.println("enter your name");
-		this.name = myObj.nextLine();
+        System.out.println("enter your name");
+        this.name = myObj.nextLine();
 
 		// Get address from user
 		System.out.println("enter your address");
@@ -35,6 +35,12 @@ public class Address_entry {
 		System.out.println("enter your phone number");
 		this.phone_number = myObj.nextLine(); // Read user input
 
-	}
+        
+    }
+    public void print_entry() {
+        System.out.println("name		city	state	ZipCode	Phone_number");
+		System.out.println(this.name+"\t\t"+this.city+"\t"+this.state+"\t"+this.zip+"\t"+this.phone_number);
+		
+    }
 	
 }

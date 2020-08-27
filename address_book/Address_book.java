@@ -3,12 +3,12 @@ import java.util.*;
 
 public class Address_book {
  
-    List<Address_entry> addressList;
-	Address_book(Address_entry entry) {
+	List<Address_entry> addressList;
+	Address_book() {
 
 		// create a list to store new address entries
-		List<Address_entry> addressList = new ArrayList<Address_entry>();
-		addressList.add(entry);
+		this.addressList = new ArrayList<Address_entry>();
+		
 
 	}
 
@@ -18,4 +18,11 @@ public class Address_book {
 
 	}
 
+	public void print_all() {
+		int length = this.addressList.size();
+		for (int i=0;i<length;i++){
+			System.out.println("Entry number : "+(i+1));
+			addressList.get(i).print_entry();
+		}
+	}
 }
