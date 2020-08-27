@@ -38,7 +38,10 @@ public class Address_entry {
         
     }
     public void print_entry() {
-        System.out.println("name		city	state	ZipCode	Phone_number");
+
+		//display head row
+		System.out.println("name		city	state	ZipCode	Phone_number");
+		//display values
 		System.out.println(this.name+"\t\t"+this.city+"\t"+this.state+"\t"+this.zip+"\t"+this.phone_number);
 		
     }
