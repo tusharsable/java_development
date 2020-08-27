@@ -1,6 +1,6 @@
 //Program to calculate salary of a employee
 
-public class Employee_wage_calculator {
+public class Employee_wage_calculator implements Compute_emp_wage {
     
     private int number_of_companies = 0;
     private  final int is_part_time = 0;
@@ -104,7 +104,7 @@ public class Employee_wage_calculator {
 
     public static void main(String[] args) {
         //Create object of employee wage calculator
-        Employee_wage_calculator companies = new Employee_wage_calculator();
+        Compute_emp_wage companies = new Employee_wage_calculator();
         System.out.println("Welcome to Employee Wage Computation Program");
 
         //Add company templates to the object 
