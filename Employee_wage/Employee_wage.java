@@ -1,16 +1,13 @@
 //Program to calculate salary of a employee
 
 public class Employee_wage {
-	
-	public static final int working_days_max = 20;
-	public static final int working_hours_max = 100;
-	public static final int wage_per_hr = 20;
+
+	public static final int is_full_time = 0;
+	public static final int is_part_time = 1;
 	public static final int full_time_hr = 8;
 	public static final int part_time_hr = 4;
-	public static final int is_part_time = 0;
-	public static final int is_full_time = 1;
-
-	public static int compute_emp_wage() {
+	
+	public static int compute_emp_wage(String name,int working_days_max,int working_hours_max,int wage_per_hr) {
 				//declaring required variables
 				int worked_hour = 0;
 				
@@ -35,7 +32,7 @@ public class Employee_wage {
 						case is_part_time:{
 							//add day work hours to total worked hours
 							worked_hour += full_time_hr;
-							System.out.println("Full time work done");
+							//System.out.println("Full time work done");
 						
 						break;
 							}
@@ -44,7 +41,7 @@ public class Employee_wage {
 						case is_full_time: {
 							//add day work hours to total worked hours
 							worked_hour += part_time_hr;
-							System.out.println("Part time work done");
+							//System.out.println("Part time work done");
 						break;
 							}
 						}
@@ -55,7 +52,7 @@ public class Employee_wage {
 				// if employee is absent
 				case 0:
 					{
-						System.out.println("Employee is absent");
+						//System.out.println("Employee is absent");
 						break;
 					}
 		
@@ -81,8 +78,11 @@ public class Employee_wage {
 		
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation Program");
-		int month_wage=compute_emp_wage();
-		System.out.println("The day wage is : "+month_wage);
+		int reliance_month_wage=compute_emp_wage("Reliance", 20, 100, 35);
+		System.out.println("The day wage of Reliance is : "+reliance_month_wage);
+		int dmart_month_wage=compute_emp_wage("Reliance", 20, 100, 35);
+		System.out.println("The day wage of Dmart is : "+dmart_month_wage);
+	
 	}
 	
 }
