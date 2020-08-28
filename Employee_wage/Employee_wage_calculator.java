@@ -1,29 +1,32 @@
 //Program to calculate salary of a employee
-
+import java.util.*;
 public class Employee_wage_calculator implements Compute_emp_wage {
     
     private int number_of_companies = 0;
     private  final int is_part_time = 0;
     private  final int is_full_time = 1;
-    private Company_emp_wage[] company_array;
-    private int wage_array[]=new int[10];
+    private ArrayList<Company_emp_wage> company_list;
+    private HashMap<String, Company_emp_wage> company_wage_map;
 
     //Create a list to store all companies
     Employee_wage_calculator() {
-        company_array = new Company_emp_wage[10];
+        company_list = new ArrayList<Company_emp_wage>();
+        company_wage_map = new HashMap<String, Company_emp_wage>();
     }
 
     //Method to add Companies to our array
     public void add_company(String name,int working_days_max,int working_hours_max,int wage_per_hr) {
-        company_array[number_of_companies++]=new Company_emp_wage(name,working_days_max,working_hours_max,wage_per_hr);
-        
+        Company_emp_wage company_emp_wage = new Company_emp_wage(name,working_days_max,working_hours_max,wage_per_hr);
+        company_list.add(company_emp_wage);
+        company_wage_map.put(name,company_emp_wage);
     }
 
     //Method to compute employee wage of all companies
     public void compute_emp_wage() {
         //
+        number_of_companies=company_list.size();
         for (int i=0;i<number_of_companies;i++)
-            wage_array[i]=compute_emp_wage(company_array[i]);
+            compute_emp_wage(company_list.get(i));
 
     }
 
@@ -93,15 +96,18 @@ public class Employee_wage_calculator implements Compute_emp_wage {
             //calculate wage for day
             int month_wage=worked_hour*company.wage_per_hr;
             
-            //Assign Month wage to company object and display
+            //Assign Month wage to company object and return
             company.month_wage=month_wage;
-            System.out.println("The monthly wage for "+company.name+" employee is : "+company.month_wage);
-
             return month_wage;
+    
+
+
+
     }
-
-
-
+    public void get_employee_wage(String name) {
+        int month_wage = company_wage_map.get(name).month_wage;
+        System.out.println("The Wage for emploee of "+name+" is : "+month_wage);
+    }
     public static void main(String[] args) {
         //Create object of employee wage calculator
         Compute_emp_wage companies = new Employee_wage_calculator();
@@ -113,6 +119,9 @@ public class Employee_wage_calculator implements Compute_emp_wage {
 
         //Compute wages of the employee of the respective company and display
         companies.compute_emp_wage();
+
+        //Get wages of respective company by sending name;
+        companies.get_employee_wage("Dmart");
         
     }
     
