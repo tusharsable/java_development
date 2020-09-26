@@ -27,10 +27,21 @@ public class TicTacToe {
         }
         sc.close();
     }
+
+    public void showBoard() {
+        System.out.println("");
+        for (int i=1;i<11;i+=3)
+            for (int j=0;j<3;j++) {
+                System.out.print(this.board[i]);
+            }
+            System.out.println("");
+
+    }
     
     public static void main(String[] args) {
         TicTacToe newBoard = new TicTacToe();
         newBoard.UserChoice();
+        newBoard.showBoard();
 
     }
 }
