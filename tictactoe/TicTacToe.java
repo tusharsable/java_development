@@ -16,8 +16,8 @@ public class TicTacToe {
     //UC 2
     public void UserChoice() {
         System.out.println("enter 'X' or 'O' as your key ");
-        Scanner sc = new Scanner(System.in);
-        this.userChoice = sc.next().charAt(0);
+        Scanner scan = new Scanner(System.in);
+        this.userChoice = scan.next().charAt(0);
         System.out.println("User choice is :- "+userChoice);
         if (this.userChoice=='X') {
             this.compChoice='O';
@@ -25,7 +25,7 @@ public class TicTacToe {
         else {
             this.compChoice='X';
         }
-        sc.close();
+        
     }
 
     //UC3 Show current board 
@@ -42,11 +42,37 @@ public class TicTacToe {
             System.out.println("\n ________ \n");
         }
     }
-    
+
+    //UC4 put user key at location given by computer
+    public void userInputPosition() {
+
+        System.out.println("Please Enter a position to fill between 1-9");
+        Scanner scan = new Scanner(System.in);
+        int position = scan.nextInt();
+        
+        System.out.println("User position is :- "+position);
+        
+        if ((position<1)||(position>9)) {
+            System.out.println("Please enter a correct position");
+            this.userInputPosition();
+        }
+        else if (this.board[position]==' ') {
+            this.board[position]=this.userChoice;
+            this.showBoard();
+        }
+        else {
+            System.out.println("Please Enter a empty postion. ");
+            this.userInputPosition();
+        }
+            
+
+    }
+
     public static void main(String[] args) {
         TicTacToe newBoard = new TicTacToe();
         newBoard.UserChoice();
         newBoard.showBoard();
-
+        newBoard.userInputPosition();
+        newBoard.userInputPosition();
     }
 }
