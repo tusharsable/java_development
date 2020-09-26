@@ -3,12 +3,12 @@ import java.util.*;
 
 public class TicTacToe {
 
-    public char[] board =new char[11];
+    public char[] board =new char[10];
     public char userChoice;
     public char compChoice;
     //creating board UC!
     TicTacToe() {
-        for(int i=1;i<11;i++) {
+        for(int i=1;i<10;i++) {
             board[i]=' ';
         }
         System.out.println(board);
@@ -28,14 +28,19 @@ public class TicTacToe {
         sc.close();
     }
 
+    //UC3 Show current board 
     public void showBoard() {
         System.out.println("");
-        for (int i=1;i<11;i+=3)
+        for (int i=1;i<10;i+=3) {
             for (int j=0;j<3;j++) {
-                System.out.print(this.board[i]);
+                System.out.print(this.board[i+j]);
+                if (j!=2) {
+                    System.out.print(" | ");
+                }
             }
-            System.out.println("");
-
+            
+            System.out.println("\n ________ \n");
+        }
     }
     
     public static void main(String[] args) {
